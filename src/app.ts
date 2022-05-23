@@ -5,24 +5,31 @@ const addButtonElement: HTMLButtonElement = document.querySelector("#task-add");
 interface  Task {
     title: string;
     done: boolean;
+    category?: string;
 }
+
+const categories: string[] = ["linux", "react", "study", "gym", "general"]
 
 const tasks: Task[] = [
     {
         title: "Study linux terminal",
         done: false,
+        category: "linux",
     },
     {
         title: "Study React",
         done: false,
+        category: "react",
     },
     {
         title: "Study TypeScript",
         done: false,
+        category: "study",
     },
     {
         title: "Train at gym",
         done: false,
+        category: 'gym',
     },
     {
         title: "Make a food",
@@ -34,6 +41,9 @@ const render = () => {
     tasksContainerElement.innerHTML = '';
     tasks.forEach((task, index) => {
         const taskElement: HTMLElement = document.createElement("li");
+        if (task.category) {
+            taskElement.classList.add(task.category);
+        }
         const id: string = `task-${index}`;
 
         const labelElement: HTMLLabelElement = document.createElement('label');

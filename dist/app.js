@@ -1,22 +1,27 @@
 const tasksContainerElement = document.querySelector(".todo__container--tasks");
 const taskTitleInputElement = document.querySelector("#task-title");
 const addButtonElement = document.querySelector("#task-add");
+const categories = ["linux", "react", "study", "gym", "general"];
 const tasks = [
     {
         title: "Study linux terminal",
         done: false,
+        category: "linux",
     },
     {
         title: "Study React",
         done: false,
+        category: "react",
     },
     {
         title: "Study TypeScript",
         done: false,
+        category: "study",
     },
     {
         title: "Train at gym",
         done: false,
+        category: 'gym',
     },
     {
         title: "Make a food",
@@ -27,6 +32,9 @@ const render = () => {
     tasksContainerElement.innerHTML = '';
     tasks.forEach((task, index) => {
         const taskElement = document.createElement("li");
+        if (task.category) {
+            taskElement.classList.add(task.category);
+        }
         const id = `task-${index}`;
         const labelElement = document.createElement('label');
         labelElement.innerText = task.title;

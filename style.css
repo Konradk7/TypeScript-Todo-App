@@ -11,6 +11,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 40px;
+
 }
 
 .todo__container {
@@ -23,6 +24,9 @@ body {
     padding: 20px;
     border-radius: 7px;
     box-shadow: 0 0 1px 0 honeydew;
+    height: auto;
+    overflow: auto;
+
 }
 
 .todo__container--input {
@@ -30,6 +34,7 @@ body {
     margin: 10px;
     padding: 10px 20px;
 }
+
 .todo__container--button {
     font-size: 17px;
     font-weight: bold;
@@ -42,6 +47,7 @@ body {
     cursor: pointer;
     box-shadow: 0 0 2px 0 gray;
 }
+
 .todo__container--button:hover {
     transform: scale(1.03);
 }
@@ -51,12 +57,39 @@ body {
     align-items: center;
     list-style: none;
 }
+
 .todo__container--categories input {
     margin-right: 10px;
 }
-.tasks input {
+
+.todo__container--tasks {
+    margin-left: 5px;
+
+}
+.todo__container--tasks li {
+    margin-top: 5px;
+    padding: 5px 5px;
+    border-bottom: 1px solid black;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+.todo__container--tasks input {
     margin-left: 10px;
 }
+
 .todo__container p {
     cursor: default;
+}
+.linux {
+    background: yellow;
+}
+.react {
+    background: cornflowerblue;
+}
+.study {
+    background: forestgreen;
+}
+.gym {
+    background: lightgrey;
 }
