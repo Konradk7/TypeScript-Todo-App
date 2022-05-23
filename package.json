@@ -1,0 +1,23 @@
+{
+  "name": "type-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Konradk7/TypeScript-Todo-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Konradk7/TypeScript-Todo-App/issues"
+  },
+  "homepage": "https://github.com/Konradk7/TypeScript-Todo-App#readme",
+  "dependencies": {
+    "npm": "^8.10.0"
+  }
+}
