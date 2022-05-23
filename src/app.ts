@@ -2,21 +2,49 @@ const tasksContainerElement: HTMLElement = document.querySelector(".todo__contai
 const taskTitleInputElement: HTMLInputElement = document.querySelector("#task-title");
 const addButtonElement: HTMLButtonElement = document.querySelector("#task-add");
 
-const tasks: string[] = ["Study linux terminal", "Study React", "Study TypeScript", "Train at gym", "Make a food"];
+const tasks: {
+    name: string;
+    done: boolean;
+}[] = [
+    {
+        name: "Study linux terminal",
+        done: false,
+    },
+    {
+        name: "Study React",
+        done: false,
+    },
+    {
+        name: "Study TypeScript",
+        done: false,
+    },
+    {
+        name: "Train at gym",
+        done: false,
+    },
+    {
+        name: "Make a food",
+        done: false,
+    },
+];
 
 const render = () => {
+    tasksContainerElement.innerHTML = '';
     tasks.forEach(task => {
         const taskElement: HTMLElement = document.createElement("li");
-        taskElement.innerText = task;
+        taskElement.innerText = task.name;
         tasksContainerElement.appendChild(taskElement)
     });
 };
 
-const addTask = (task: string) => {
-    tasks.push(task)
+const addTask = (taskName: string) => {
+    tasks.push({name: taskName, done: false})
 }
+
 addButtonElement.addEventListener("click", (event: Event) => {
     event.preventDefault();
+    addTask(taskTitleInputElement.value);
+    render();
 })
 
 render()

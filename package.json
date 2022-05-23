@@ -16,8 +16,5 @@
   "bugs": {
     "url": "https://github.com/Konradk7/TypeScript-Todo-App/issues"
   },
-  "homepage": "https://github.com/Konradk7/TypeScript-Todo-App#readme",
-  "dependencies": {
-    "npm": "^8.10.0"
-  }
+  "homepage": "https://github.com/Konradk7/TypeScript-Todo-App#readme"
 }
