@@ -2,13 +2,15 @@ const tasksContainerElement: HTMLElement = document.querySelector(".todo__contai
 const taskTitleInputElement: HTMLInputElement = document.querySelector("#task-title");
 const addButtonElement: HTMLButtonElement = document.querySelector("#task-add");
 
+type Category = "linux" | 'react' | 'study' | 'gym' | 'general';
+
 interface  Task {
     title: string;
     done: boolean;
-    category?: string;
+    category?: Category;
 }
 
-const categories: string[] = ["linux", "react", "study", "gym", "general"]
+const categories: Category[] = ["linux", "react", "study", "gym", "general"]
 
 const tasks: Task[] = [
     {
@@ -68,12 +70,12 @@ const render = () => {
 
 const addTask = (task: Task) => {
     tasks.push(task)
-}
+};
 
 addButtonElement.addEventListener("click", (event: Event) => {
     event.preventDefault();
     addTask({ title: taskTitleInputElement.value, done: false });
     render();
-})
+});
 
 render()
