@@ -45,3 +45,18 @@ body {
 .todo__container--button:hover {
     transform: scale(1.03);
 }
+
+.todo__container--categories li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.todo__container--categories input {
+    margin-right: 10px;
+}
+.tasks input {
+    margin-left: 10px;
+}
+.todo__container p {
+    cursor: default;
+}
