@@ -2,48 +2,67 @@ const tasksContainerElement: HTMLElement = document.querySelector(".todo__contai
 const taskTitleInputElement: HTMLInputElement = document.querySelector("#task-title");
 const addButtonElement: HTMLButtonElement = document.querySelector("#task-add");
 
-const tasks: {
-    name: string;
+interface  Task {
+    title: string;
     done: boolean;
-}[] = [
+}
+
+const tasks: Task[] = [
     {
-        name: "Study linux terminal",
+        title: "Study linux terminal",
         done: false,
     },
     {
-        name: "Study React",
+        title: "Study React",
         done: false,
     },
     {
-        name: "Study TypeScript",
+        title: "Study TypeScript",
         done: false,
     },
     {
-        name: "Train at gym",
+        title: "Train at gym",
         done: false,
     },
     {
-        name: "Make a food",
+        title: "Make a food",
         done: false,
     },
 ];
 
 const render = () => {
     tasksContainerElement.innerHTML = '';
-    tasks.forEach(task => {
+    tasks.forEach((task, index) => {
         const taskElement: HTMLElement = document.createElement("li");
-        taskElement.innerText = task.name;
-        tasksContainerElement.appendChild(taskElement)
+        const id: string = `task-${index}`;
+
+        const labelElement: HTMLLabelElement = document.createElement('label');
+        labelElement.innerText = task.title;
+        labelElement.setAttribute("for", id);
+
+        const checkboxElement: HTMLInputElement = document.createElement("input");
+        checkboxElement.type = 'checkbox';
+        checkboxElement.name = task.title;
+        checkboxElement.id = id;
+        checkboxElement.checked = task.done;
+        checkboxElement.addEventListener("change", () => {
+            task.done = !task.done;
+        })
+
+        taskElement.appendChild(labelElement);
+        taskElement.appendChild(checkboxElement);
+
+        tasksContainerElement.appendChild(taskElement);
     });
 };
 
-const addTask = (taskName: string) => {
-    tasks.push({name: taskName, done: false})
+const addTask = (task: Task) => {
+    tasks.push(task)
 }
 
 addButtonElement.addEventListener("click", (event: Event) => {
     event.preventDefault();
-    addTask(taskTitleInputElement.value);
+    addTask({ title: taskTitleInputElement.value, done: false });
     render();
 })
 
