@@ -1,6 +1,8 @@
 const tasksContainerElement = document.querySelector(".todo__container--tasks");
 const taskTitleInputElement = document.querySelector("#task-title");
 const addButtonElement = document.querySelector("#task-add");
+const categoriesContainerElement = document.querySelector(".todo__container--categories");
+let selectedCategory;
 const categories = ["linux", "react", "study", "gym", "general"];
 const tasks = [
     {
@@ -52,12 +54,33 @@ const render = () => {
         tasksContainerElement.appendChild(taskElement);
     });
 };
+const renderCategories = () => {
+    categories.forEach((category) => {
+        const categoryElement = document.createElement("li");
+        const radioInputElement = document.createElement("input");
+        radioInputElement.type = "radio";
+        radioInputElement.name = "category";
+        radioInputElement.value = "category";
+        radioInputElement.id = `Category-${category}`;
+        radioInputElement.addEventListener("change", () => {
+            selectedCategory = category;
+        });
+        const labelElement = document.createElement("label");
+        labelElement.setAttribute("for", `Category-${category}`);
+        labelElement.innerText = category;
+        categoryElement.appendChild(radioInputElement);
+        categoryElement.appendChild(labelElement);
+        categoriesContainerElement.appendChild(categoryElement);
+    });
+};
 const addTask = (task) => {
+    taskTitleInputElement.value = "";
     tasks.push(task);
 };
 addButtonElement.addEventListener("click", (event) => {
     event.preventDefault();
-    addTask({ title: taskTitleInputElement.value, done: false });
+    addTask({ title: taskTitleInputElement.value, done: false, category: selectedCategory, });
     render();
 });
+renderCategories();
 render();
