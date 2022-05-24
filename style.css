@@ -74,6 +74,10 @@ body {
     display: flex;
     justify-content: space-between;
 }
+.todo__container--tasks li:hover {
+    transform: scale(1.05);
+}
+
 .todo__container--tasks input {
     margin-left: 10px;
 }
