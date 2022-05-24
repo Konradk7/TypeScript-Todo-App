@@ -1,5 +1,11 @@
 import {Category} from "../types/types";
 
+const handleCategoryChange = (category: Category) => {
+    if (category === "general") {
+        console.log("Zmiana na general");
+    }
+}
+
 export const renderCategories =
     (categories: Category[],
      categoriesContainerElement: HTMLElement,

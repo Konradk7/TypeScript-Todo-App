@@ -1,3 +1,8 @@
+const handleCategoryChange = (category) => {
+    if (category === "general") {
+        console.log("Zmiana na general");
+    }
+};
 export const renderCategories = (categories, categoriesContainerElement, inputChangeCallback) => {
     categories.forEach((category) => {
         const categoryElement = document.createElement("li");
